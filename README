@@ -1,0 +1,59 @@
+Project Structure:
+
+common:
+    This package holds the Constant class which defines the constants used in the project,
+    and Messages class which defines the error information for exception.
+
+core:
+    This package holds the DNSClient class and Profiler class, which is the main entry point and
+    profiler for runtime performance respectively.
+
+enums:
+    This package holds the classes for all the enum types used int the project.
+
+exception:
+    This package holds the class for custom exception.
+
+factory:
+    This package holds the factory class to create enum type related object,
+    all metadata object for the dns request and response.
+
+metadata:
+    This package holds the metadata class for the dns request and response.
+
+rdata:
+    This package holds the class for RData format in the dns response.
+
+request:
+    This package includes the dns request related class.
+
+response:
+    This package includes the dns response related class.
+
+util:
+    This package includes all the utility functions used in the project.
+
+
+
+How to build the project?
+
+    Use 'mvn clean install' to build the project, the .jar file will be found in the target
+    directory. This project also use external dependency 'apache.common.lang3' so I bundled the
+    dependency in the *jar-with-dependency.jar file.
+
+How to run it?
+
+    Use 'java -cp lab2-1.0-SNAPSHOT-jar-with-dependencies.jar core.DNSClient server-name
+    query-name query-type' to run it. Currently support query type of 'A', 'MX', 'NS', 'SOA',
+    and support response RRType of 'A', 'CNAME', 'MX', 'NS', 'SOA', 'AAAA'.
+
+Note:
+
+    The default udp socket timeout was set to 1 second, it can be changed in common.Constants.
+    The dafault value for udp packet buffer size was set to be 1024 bytes,
+    it can be changed in common.Constants.
+
+References:
+    http://www.zytrax.com/books/dns/ch15/
+    http://www.zytrax.com/books/dns/apd/rfc1035.txt
+
